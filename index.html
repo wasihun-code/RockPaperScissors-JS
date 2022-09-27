@@ -1,26 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+
+        // Function: Generates proper random integer
         function getRndInteger(min, max) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
+        // Function: return random string from an array
+       //            using random generator function
         function getComputerChoice() {
-            const choice = ["Rock", "Paper", "Scissors"];
+            const choice = ["rock", "paper", "scissors"];
 
             let index = getRndInteger(0, 3);
             console.log(choice);
             return choice[index];
         }
 
+        // Function: Play one round of rock paper scissor
+        //         : between computer(randomly generated) and player
+        function playRound(player, computer) {
+
+            if (player == computer)
+                return 3;
+            
+            else if (player == "rock") {
+                if (computer == "paper")
+                    return 2;
+                else if (computer == "scissors")
+                    return 1;
+            }
+
+            else if (player == "paper") {
+                if (computer == "scissors")
+                    return 2;
+                else
+                    return 1;
+            }
+
+            else {
+                if (computer == "paper")
+                    return 1;
+                else
+                    return 2;
+            }
+        }
+        
+ 
     </script>
 </head>
+
 <body>
-    
+
 </body>
+
 </html>
