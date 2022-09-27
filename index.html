@@ -10,6 +10,14 @@
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
+        function getComputerChoice() {
+            const choice = ["Rock", "Paper", "Scissors"];
+
+            let index = getRndInteger(0, 3);
+            console.log(choice);
+            return choice[index];
+        }
+
     </script>
 </head>
 <body>
