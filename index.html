@@ -52,7 +52,36 @@
             }
         }
         
- 
+        function game() {
+            // Initialize variables to keep count of the output in each game
+            let playerCount = 0;
+            let computerCount = 0;
+
+            // Play five rounds of rock paper scissor
+            for (let i = 0; i < 5; i++) {
+                let player = prompt("\t What is your pick? ").toLowerCase();
+                let computer = getComputerChoice();
+                
+                // Check if user have entered the appropriate entities
+                if (player == "rock" || player == "scissors" || player == "paper") {
+
+                    // Check who has won theis round
+                    if (playRound(player, computer) == 1)
+                        playerCount++
+                    else if (playRound(player, computer) == 2)
+                        computerCount++
+                }
+            }
+
+            if (playerCount > computerCount)
+                console.log("Congratulation You have won the computer!");
+            else if (playerCount < computerCount)
+                console.log("Sorry: You have lost the game. Try again later!");
+            else
+                console.log("It is a tie for today! You deserve it!");
+        }
+
+        game();
     </script>
 </head>
 
