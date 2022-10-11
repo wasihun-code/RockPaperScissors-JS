@@ -1,0 +1,87 @@
+/**
+ * 
+function game() {
+    // Initialize variables to keep count of the output in each game
+    let playerCount = 0;
+    let computerCount = 0;
+
+    // Play five rounds of rock paper scissor
+    for (let i = 0; i < 5; i++) {
+        let player = prompt("\t What is your pick? ").toLowerCase();
+        let computer = getComputerChoice();
+
+        // Check if user have entered the appropriate entities
+        if (player == "rock" || player == "scissors" || player == "paper") {
+
+            // Check who has won theis round
+            if (playRound(player, computer) == 1)
+                playerCount++
+            else if (playRound(player, computer) == 2)
+                computerCount++
+        }
+    }
+
+    if (playerCount > computerCount)
+        console.log("Congratulation You have won the computer!");
+    else if (playerCount < computerCount)
+        console.log("Sorry: You have lost the game. Try again later!");
+    else
+        console.log("It is a tie for today! You deserve it!");
+}
+*/
+
+
+
+// Create 3 buttons each for rock, paper and scissros
+
+
+let btnRock = document.createElement('button');
+btnRock.classList.add('btn', 'btn-rock')
+btnRock.innerHTML = "ROCK";
+
+let btnPaper = document.createElement('button');
+btnPaper.classList.add('btn', 'btn-paper')
+btnPaper.innerHTML = "PAPER";
+
+let btnScissors = document.createElement('button');
+btnScissors.classList.add('btn', 'btn-scissors')
+btnScissors.innerHTML = "SCISSORS";
+
+// use the class of a button to resolve players choice
+function CheckWhichButtonClicked(btnsClass) {
+    if (btnsClass == 'btn-rock')
+        player = 'rock';
+    else if (btnsClass == 'btn-paper')
+        player = 'paper'
+    else
+        player = 'scissors'
+}
+
+// Add Event listners to each newly created 3 buttons
+btnRock.addEventListener('click', function(e){
+    CheckWhichButtonClicked(e.target.classList[1]);
+    console.log(playRound(player, getComputerChoice()))
+
+});
+btnPaper.addEventListener('click', function(e){
+    CheckWhichButtonClicked(e.target.classList[1]);
+    console.log(playRound(player, getComputerChoice()))
+});
+btnScissors.addEventListener('click', function(e){
+    CheckWhichButtonClicked(e.target.classList[1]);
+    console.log(playRound(player, getComputerChoice()))
+});
+
+// Create div that acts as a container for all the buttons
+let div = document.createElement('div');
+div.classList.add('container');
+
+// Append the buttons to the containing div
+div.append(btnPaper, btnRock, btnScissors);
+document.body.appendChild(div);
+
+
+// Create div that display result
+let divDisplayResult = document.createElement('div');
+
+
