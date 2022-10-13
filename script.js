@@ -46,28 +46,31 @@ function playRound(player, computer) {
             return 2;
     }
 }
-
+// Function: Plays three rounds of rock paper scissor
+//         : And Announces the winner to the screen
 function playThreeRounds() {
 
     // Game resets after each one won
     if (playerCount === 3 || computerCount === 3) {
         if (computerCount === 3) {
-            h1.innerText = "Computer Won";
+            h1.innerText = "COMPUTER WON";
         }
         if (playerCount === 3) {
-            h1.innerText = "Player Won";
+            h1.innerText = "YOU WON";
         }
         h1.style.display = "inline";
+        // Reverse the count to 0;
         playerCount = drawCount = computerCount = 0;
         return;
     }
+    // Remove the winner of last game from display
     h1.style.display = "none";
+
     player = player.toLowerCase();
     computer = getComputerChoice();
 
     // Play One Round
     let result = playRound(player, computer);
-
     (result === 1) ? playerCount++ :
     (result === 2) ? computerCount++ :
                      drawCount++;
