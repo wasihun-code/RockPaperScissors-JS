@@ -75,7 +75,13 @@ function playThreeRounds() {
 
     // Game resets after each one won
     if (playerCount === 3 || computerCount === 3) {
-        displayResult();
+        if (computerCount === 3) {
+            h1.innerText = "Computer Won";
+        }
+        if (playerCount === 3) {
+            h1.innerText = "Player Won";
+        }
+        h1.style.display = "inline";
         playerCount = drawCount = computerCount = 0;
         return;
     }
@@ -99,15 +105,6 @@ h1.style.display = "none";
 
 let div = document.createElement('div');
 div.append(btnRock, btnPaper, btnScissors, h1);
-
-function displayResult() {
-    
-    if (computerCount === 3) {
-        h1.innerText = "Computer Won";
-    }
-    h1.style.display = "inline";
-}
-
 
 
 // Display the buttons
