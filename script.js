@@ -47,30 +47,6 @@ function playRound(player, computer) {
     }
 }
 
-// Create 3 buttons
-let btnRock = document.createElement('button');
-let btnPaper = document.createElement('button');
-let btnScissors = document.createElement('button');
-
-// Add inner text
-btnRock.innerText = "Rock";
-btnPaper.innerText = "Paper";
-btnScissors.innerText = "Scissors";
-
-// Add event Listner for each button
-btnRock.addEventListener('click', function (e) {
-    player = e.target.innerText;
-    playThreeRounds();
-});
-btnPaper.addEventListener('click', function (e) {
-    player = e.target.innerText;
-    playThreeRounds();
-});
-btnScissors.addEventListener('click', function (e) {
-    player = e.target.innerText;
-    playThreeRounds();
-});
-
 function playThreeRounds() {
 
     // Game resets after each one won
@@ -97,6 +73,31 @@ function playThreeRounds() {
                      drawCount++;
 }
 
+// Create 3 buttons
+let btnRock = document.createElement('button');
+let btnPaper = document.createElement('button');
+let btnScissors = document.createElement('button');
+
+// Add inner text
+btnRock.innerText = "Rock";
+btnPaper.innerText = "Paper";
+btnScissors.innerText = "Scissors";
+
+// Add event Listner for each button
+btnRock.addEventListener('click', function (e) {
+    player = e.target.innerText;
+    playThreeRounds();
+});
+btnPaper.addEventListener('click', function (e) {
+    player = e.target.innerText;
+    playThreeRounds();
+});
+btnScissors.addEventListener('click', function (e) {
+    player = e.target.innerText;
+    playThreeRounds();
+});
+
+
 
 // Create div and append all buttons to it
 let h1 = document.createElement('h1');
@@ -110,9 +111,26 @@ div.append(btnRock, btnPaper, btnScissors, h1);
 // Display the buttons
 document.body.append(div)
 
-// Add classes to each button, div for styling
 
+// Styling: container for buttons
+div.style.cssText = `
+    width: 300px;
+    margin: auto;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;   
+    gap: 5px;
+`
 
-// Styling:
-div.style.display = "flex";
-div.style.flexDirection = "column";
+// Styling: buttons
+let btns = document.querySelectorAll('button');
+btns.forEach(styleButtons);
+function styleButtons(btn) {
+    btn.style.cssText = `
+        background-color: burlywood;
+        border-radius: 18px;
+        color: drakslategrey;
+        font-size: 40px;
+        height: 70px;
+    `
+}
